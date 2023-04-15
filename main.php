@@ -85,6 +85,8 @@ include('include/link.php');
     $bytes = random_bytes($len);
     $token = bin2hex($bytes);
     return $token;
+
+   }
     function gentoken_python($len = 12){
       $bytes = random_bytes($len);
       $token = bin2hex($bytes);
