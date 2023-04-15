@@ -1,0 +1,55 @@
+.cardresult {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  .cardresult-text {
+    flex: 1;
+    padding-right:10vh;
+    padding-left: 10vh;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .cardresult-image {
+    margin-left: 20px;
+  }
+  
+  .cardreslut-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  @media (max-width: 1300px) {
+    .cardresult {
+        
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .cardresult-image {
+      margin-top: 20px;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 668px;
+      height: auto;
+     
+
+    }
+    .cardresult-text{
+      margin-left: auto;
+      margin-right: auto;
+        margin-top: 20px;
+        
+    }
+    
+  }
+  

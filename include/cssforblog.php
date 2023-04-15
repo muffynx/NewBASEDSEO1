@@ -1,0 +1,1 @@
+<link rel="stylesheet" href="../css/fonts-thai-readblog.css?v=<?php echo time() ?>">
