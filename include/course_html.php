@@ -2,6 +2,20 @@
    $course_html = $user_record['Course_HTML'];
    $_SESSION['Course_HTML'] = $user_record['Course_HTML'];
    
+
+  if(!isset($_SESSION['token_html'])){
+    $_SESSION['token_html'] = gentoken_html();
+    $query = "SELECT * FROM sql_course_html WHERE token = '{$_SESSION['token_html']}'";
+    $result = mysqli_query($conn,$query);
+
+    if (mysqli_num_rows($result)> 0 ){
+      unset($_SESSION['token_html']);
+    }
+  }
+$token = $_SESSION['token_html'];
+
+
+
    if ($course_html == 0) {
     // Delete row from sql_course_python table
     $sql = "DELETE FROM sql_course_html WHERE tcansee='2' AND u_name='{$_SESSION['u_name']}' AND e_mail='{$_SESSION['e_mail']}'";

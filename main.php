@@ -92,6 +92,11 @@ include('include/link.php');
       $token = bin2hex($bytes);
       return $token;
   }
+  function gentoken_html($len = 12){
+    $bytes = random_bytes($len);
+    $token = bin2hex($bytes);
+    return $token;
+}
  
 
 
