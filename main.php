@@ -81,10 +81,14 @@ include('include/link.php');
    include('include/course_css.php');
    include('include/refresh_page.php');
   
-   function gentoken($len = 12){
+   function gentoken_php($len = 12){
     $bytes = random_bytes($len);
     $token = bin2hex($bytes);
     return $token;
+    function gentoken_python($len = 12){
+      $bytes = random_bytes($len);
+      $token = bin2hex($bytes);
+      return $token;
   }
  
 

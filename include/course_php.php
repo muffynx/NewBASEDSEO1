@@ -5,7 +5,7 @@ $_SESSION['Course_PHP'] = $user_record['Course_PHP'];
 
 
 if (!isset($_SESSION['token'])){
-  $_SESSION['token'] = gentoken();
+  $_SESSION['token'] = gentoken_php();
 
   $query = "SELECT * FROM sql_course_python WHERE token = '{$_SESSION['token']}'";
   $result = mysqli_query($conn, $query);
