@@ -32,7 +32,7 @@ $token_php = $_SESSION['token_php'];
 if ($course_php == 0) {
  
   $sql = "DELETE FROM sql_course_php WHERE tcansee='3' AND u_name='{$_SESSION['u_name']}' AND e_mail='{$_SESSION['e_mail']}' AND token='{$_SESSION['token_php']}'";
-  $sqll = " DELETE FROM token_course WHERE tcansee = '3' AND token= '{$_SESSION['token_php']}'";
+  $sqll = " DELETE FROM token_course WHERE tcansee = '3' AND token= '{$_SESSION['token_php']}' AND e_mail='{$_SESSION['e_mail']}'";
   
   if ($conn->query($sql) === TRUE) {
     $_SESSION['message'] = "Record deleted successfully";
@@ -42,13 +42,13 @@ if ($course_php == 0) {
   }
 } else {
   // Check if user already registered for the course
-  $sqll = "SELECT * FROM token_course WHERE tcansee = '3' AND token= '{$_SESSION['token_php']}'";
+  $sqll = "SELECT * FROM token_course WHERE tcansee = '3' AND token= '{$_SESSION['token_php']}' AND e_mail='{$_SESSION['e_mail']}'";
   $sql = "SELECT * FROM sql_course_php WHERE u_name='{$_SESSION['u_name']}' AND e_mail='{$_SESSION['e_mail']}' AND tcansee='3' AND token='{$_SESSION['token_php']}'";
   $result = $conn->query($sql);
 
   if ($result->num_rows > 0) {
     $sql = "UPDATE sql_course_php SET u_name='{$_SESSION['u_name']}', tcansee='3' WHERE e_mail='{$_SESSION['e_mail']}' AND token='{$_SESSION['token_php']}'";
-    $sqll = "UPDATE token_course SET tcansee = '3', token= '{$_SESSION['token_php']}'";
+    $sqll = "UPDATE token_course SET tcansee = '3', token= '{$_SESSION['token_php']}'WHERE e_mail='{$_SESSION['e_mail']}'";
     
   
     if ($conn->query($sql) === TRUE) {
@@ -61,7 +61,7 @@ if ($course_php == 0) {
   } else {
     // User not registered, insert new record
     $sql = "INSERT INTO sql_course_php (u_name, e_mail, tcansee, token) VALUES ('{$_SESSION['u_name']}', '{$_SESSION['e_mail']}', '3', '{$_SESSION['token_php']}')";
-    $sqll = "INSERT INTO token_course (tcansee, token) VALUES ('3', '{$_SESSION['token_php']}')";
+    $sqll = "INSERT INTO token_course (tcansee, token,e_mail) VALUES ('3', '{$_SESSION['token_php']}' ,'{$_SESSION['e_mail']}' )";
     if($conn->query($sqll)===TRUE){
  
     }

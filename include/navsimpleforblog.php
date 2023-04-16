@@ -28,8 +28,8 @@
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
-            <li><a href="/BasedSEO2/register.php" class="fonts-thai-login" style="color:black;"><span class="glyphicon glyphicon-user"></span> สมัครสมาชิก </a></li>
-            <li><a href="/BasedSEO2/login.php" class="fonts-thai-login" style="color:black;"><span class="glyphicon glyphicon-log-in"></span> เข้าสู่ระบบ </a></li>
+            <li><a href="/newbasedseo/register.php" class="fonts-thai-login" style="color:black;"><span class="glyphicon glyphicon-user"></span> สมัครสมาชิก </a></li>
+            <li><a href="/newbasedseo/login.php" class="fonts-thai-login" style="color:black;"><span class="glyphicon glyphicon-log-in"></span> เข้าสู่ระบบ </a></li>
           </ul>
 
     </div>
