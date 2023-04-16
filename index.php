@@ -45,7 +45,7 @@ if (isset($_SESSION['u_name'])) {
   <?php include('include/showpage.php'); ?>
   
   <?php include('include/resultseo.php'); ?>
-  <?php include('include/price-table-copy.php'); ?>  
+ 
   <?php include('include/price-table.php'); ?>
   <?php include('include/card1.php'); ?>
   <?php include('include/section.php'); ?>

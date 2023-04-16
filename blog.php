@@ -27,6 +27,8 @@ if (isset($_SESSION['u_name'])) {
         $mySQL = "SELECT *  FROM blog WHERE tcansee = 1 ";
         $my_query = mysqli_query($conn, $mySQL);
         $my_record = mysqli_fetch_array($my_query);
+
+        
         $totalmy_record = mysqli_num_rows($my_query);
 
         $strSQLweb = "SELECT *  FROM blog WHERE tcansee = 1";

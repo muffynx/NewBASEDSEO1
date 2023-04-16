@@ -1,7 +1,7 @@
 <?php
 
  include("include/user_record.php");
-
+include('include/connect.php'); 
 include('include/link.php');
 
 ?>
@@ -83,30 +83,81 @@ include('include/link.php');
   
    function gentoken_php($len = 12){
     $bytes = random_bytes($len);
-    $token = bin2hex($bytes);
-    return $token;
-
-   }
+    $token_php = bin2hex($bytes);
+    return $token_php;
+  }
     function gentoken_python($len = 12){
       $bytes = random_bytes($len);
-      $token = bin2hex($bytes);
-      return $token;
+      $token_python = bin2hex($bytes);
+      return $token_python;
   }
   function gentoken_html($len = 12){
     $bytes = random_bytes($len);
-    $token = bin2hex($bytes);
-    return $token;
+    $token_html = bin2hex($bytes);
+    return $token_html;
+}
+function gentoken_css($len = 12){
+  $bytes = random_bytes($len);
+  $token_css = bin2hex($bytes);
+  return $token_css;
 }
  
+if (!isset($_SESSION['token_php'])) {
 
+}
 
+if (!isset($_SESSION['token_python'])) {
+
+}
+
+if (!isset($_SESSION['token_css'])) {
+
+}
+
+if (!isset($_SESSION['token_html'])) {
+
+}
+
+if (isset($_POST['readform'])) {
+  $form_token = $_GET['token'];
+  $form_id = $_POST['readpost'];
+
+  // check which token was used
+  if ($form_token == $_SESSION['token_php']) {
+
+    // ...
+  } else if ($form_token == $_SESSION['token_python']) {
+    // handle Python token click
+    // ...
+  } else if ($form_token == $_SESSION['token_css']) {
+    // handle CSS token click
+    // ...
+  } else if ($form_token == $_SESSION['token_html']) {
+    // handle HTML token click
+    // ...
+  }
+}
 
 
 
 
  
-   // User already registered, update existing record
 
+$sql_course = "SELECT * FROM token_course WHERE tcansee IN (1, 2, 3, 4)";
+
+$my_query_course = mysqli_query($conn, $sql_course);
+$my_record_course = mysqli_fetch_array($my_query_course);
+
+// if ($my_query_course) {
+//   $title = $my_record_course['token'];
+//   $text = 'Success!';
+//   $delay = '2000';
+
+//   msg_success($title, $text, $delay);
+// }
+
+
+// }
   
 
  
@@ -158,13 +209,18 @@ include('include/link.php');
                     <p> <?=$_SESSION['message1']?></p>
                     <p style="color:red;">Date : <?= $my_record['tdate']; ?></p>
                     <p style="color:red;">End : <?= $my_record['tdate']; ?></p>
-                    <p><?=$_SESSION['Course_PYTHON'];?></p>
+                 
                     <p style="color:red;">Created by : <?= $my_record['twhonickname']; ?></p>
                     <p style="color:red;">Created by : <?= $my_record['link']; ?></p>
                    
-                    <form class="login100-form validate-form" ACTION="view.php?token=<?= $_SESSION['token'] ?>" name="readform" method="POST">
+
+<form class="login100-form validate-form" action="view.php?token=<?=$my_record['token']?>" name="readform" method="POST">
+  <input type="hidden" name="token" value="<?= $my_record['id']; ?>">
   <button class="btn btn-common" type="readpost" name="readpost" value="<?= $my_record['id']; ?>" style="width: 100%; margin:1px; background-color:red;">ดูความคืบหน้า</button>
 </form>
+
+
+
 
 
                   </div>
